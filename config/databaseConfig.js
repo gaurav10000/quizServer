@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const dbConnect = async () => {
     mongoose
-        .connect(process.env.MONGO_URL || 'mongodb://localhost:27017/my_database' )
+        .connect(process.env.MONGO_URL)
         .then((conn => {
             console.log('Database connected to:' + conn.connection.host)
         }))

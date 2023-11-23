@@ -1,8 +1,10 @@
-import express from 'express';
-import cors from 'cors';
+import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
-import cookieParser from 'cookie-parser';
-import dbConnect from './config/databaseConfig.js';
+import cookieParser from "cookie-parser";
+import dbConnect from "./config/databaseConfig.js";
+import mongoose from "mongoose";
+import Quiz from "./model/quizSchema.js";
 
 const app = express();
 
@@ -13,19 +15,24 @@ dotenv.config();
 
 dbConnect();
 
-app.get('/hello/:name', (req, res) => {
-    res.json({ message: `Hello ${req.params.name}` });
+// faltu apis ahead
+app.get("/hello/:name", (req, res) => {
+  res.json({ message: `Hello ${req.params.name}` });
 });
-
-
 
 app.get("/uploadQuestion", (req, res) => {
-    res.send("Upload Question");
+  res.send(req.headers);
 });
 
+// kaam ki apis ahead
 
+app.post("/createQuiz", async (req, res) => {
+  const { quizId, question } = req.body;
+  let quiz = Quiz.findOne({ quizId: quizId });
 
+  
+});
 
 app.listen(8030, () => {
-  console.log('Server started on port 8030');
+  console.log("Server started on port 8030");
 });
