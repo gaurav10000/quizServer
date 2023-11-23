@@ -26,11 +26,19 @@ app.get("/uploadQuestion", (req, res) => {
 
 // kaam ki apis ahead
 
-app.post("/createQuiz", async (req, res) => {
-  const { quizId, question } = req.body;
-  let quiz = Quiz.findOne({ quizId: quizId });
+app.post("/addQuestion", async (req, res) => {
+  const { quizId, question, opt1, opt2, opt3, opt4, correctOpt } = req.body;
 
-  
+//   console.log(quizId, question, opt1, opt2, opt3, opt4, correctOpt);
+  await Quiz.create({ quizId, question, opt1, opt2, opt3, opt4, correctOpt })
+    .then((quiz) => {
+      console.log(quiz);
+      res.json({ quiz });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({ err });
+    })
 });
 
 app.listen(8030, () => {
