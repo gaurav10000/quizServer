@@ -9,6 +9,9 @@
     "start": "nodemon app.js"
   },
   "keywords": [],
+  "engines": {
+    "node": ">=16.20.1"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
