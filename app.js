@@ -41,6 +41,20 @@ app.post("/addQuestion", async (req, res) => {
     })
 });
 
+app.get("/getQuiz", async (req, res) => {
+    const { quizId } = req.body;
+
+    await Quiz.find({ quizId })
+        .then((quiz) => {
+            console.log(quiz);
+            res.json({ quiz });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.json({ err });
+        })
+})
+
 app.listen(8030, () => {
   console.log("Server started on port 8030");
 });
