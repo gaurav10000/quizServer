@@ -13,12 +13,15 @@ dotenv.config();
 
 dbConnect();
 
-app.get('/helloWorld', (req, res) => {
-    res.send('Hello World!');
+app.get('/hello/:name', (req, res) => {
+    res.json({ message: `Hello ${req.params.name}` });
 });
 
 
 
+app.get("/uploadQuestion", (req, res) => {
+    res.send("Upload Question");
+});
 
 
 
