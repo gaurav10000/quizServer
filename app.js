@@ -32,25 +32,25 @@ app.post("/addQuestion", async (req, res) => {
 //   console.log(quizId, question, opt1, opt2, opt3, opt4, correctOpt);
   await Quiz.create({ quizId, question, opt1, opt2, opt3, opt4, correctOpt })
     .then((quiz) => {
-      console.log(quiz);
+    //   console.log(quiz);
       res.json({ quiz });
     })
     .catch((err) => {
-      console.log(err);
+    //   console.log(err);
       res.json({ err });
     })
 });
 
-app.get("/getQuiz", async (req, res) => {
-    const { quizId } = req.body;
-
+app.get("/getQuiz/:quizId", async (req, res) => {
+    const { quizId } = req.params;
+  console.log(quizId);
     await Quiz.find({ quizId })
         .then((quiz) => {
-            console.log(quiz);
+            // console.log(quiz);
             res.json({ quiz });
         })
         .catch((err) => {
-            console.log(err);
+            // console.log(err);
             res.json({ err });
         })
 })
