@@ -55,6 +55,18 @@ app.get("/getQuiz/:quizId", async (req, res) => {
         })
 })
 
+// app.get("/validQuizId/:quizId", async (req, res) => {
+
+//   // Task 1: Check if quizId is valid or not
+//   // Task 2: If valid, check if quiz is active or not (active means quiz is live and can be attempted by students and inactive means quiz is over and can't be attempted by students)
+//   // Task 3: If valid and active, check if quiz is attempted by student or not
+//   // Task 4: If valid, active and not attempted, send quiz to student but i think we should send quiz to student only when he/she clicks on start quiz button which is function of /getQuiz/:quizId api so we can do all these tasks in that api only and send quiz to student only when he/she clicks on start quiz button
+//   // Task 5: If valid, active and attempted, send message that quiz is already attempted by you
+//   // Task 6: If valid and inactive, send message that quiz is over and can't be attempted by you
+//   // Task 7: If invalid, send message that quizId is invalid
+
+// })
+
 app.listen(8030, () => {
   console.log("Server started on port 8030");
 });
