@@ -9,6 +9,14 @@ const attendieSchema =  new mongoose.Schema({
         type: String,
         require: true
     },
+    phone: {
+        type: String,
+        require: true
+    },
+    status: {
+        type: Boolean,
+        default: false
+    },
 })
 
 
